@@ -2,4 +2,4 @@
 .DS_Store
 
 #ignore config file with API key
-resources/js/config.js
+#resources/js/config.js
