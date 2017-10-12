@@ -18,6 +18,7 @@ $(document).ready(function() {
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
+  $('h1').removeClass("animated shake")
   $('#track-list').empty("");
   for (let i = 0; i < tracks.length; i++) {
     function callback(data){
@@ -31,20 +32,20 @@ Trackster.renderTracks = function(tracks) {
       } else {
         albumName = ""
       }
-      var trackRowHtml = `<div class="row track">
-        <div class="col-xs-offset-1 col-xs-1">
+      var trackRowHtml = `<tr class="track">
+        <td class="col-xs-1">
           <a href="${tracks[i].url}" target="_blank">
             <i class="fa fa-play-circle-o fa-2x play-button" aria-hidden="true"></i>
           </a>
-        </div>
-        <div class="col-xs-2">${tracks[i].name}</div>
-        <div class="col-xs-2">${tracks[i].artist}</div>
-        <div class="col-xs-2">${albumName}</div>
-        <div class="col-xs-2">
+        </td>
+        <td class="col-xs-2">${tracks[i].name}</td>
+        <td class="col-xs-2">${tracks[i].artist}</td>
+        <td class="col-xs-2">${albumName}</td>
+        <td lass="col-xs-2">
           <img src="${albumArt}">
-        </div>
-        <div class="col-xs-2">${numeral(tracks[i].listeners).format('0,0')}</div>
-      </div>`;
+        </td>
+        <td class="col-xs-2">${numeral(tracks[i].listeners).format('0,0')}</td>
+      </tr>`
       $('#track-list').append(trackRowHtml);
     };
 
@@ -64,10 +65,11 @@ Trackster.renderTracks = function(tracks) {
   Render the tracks given in the API query response.
 */
 Trackster.searchTracksByTitle = function(title) {
+  $('h1').addClass("animated shake");
   $.ajax({
     url: "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" + title + "&api_key=" + API_KEY + "&format=json",
     success: function(response) {
       Trackster.renderTracks(response.results.trackmatches.track);
     }
-  })
+  });
 };

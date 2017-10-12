@@ -42,12 +42,48 @@ h1 {
   background-color: rgb(104, 0, 255);
 }
 
+.table {
+  margin-bottom: 0;
+}
+
+.table > tbody > tr > th {
+  border-top: 0;
+}
+
+th, td {
+  text-align: center;
+}
+
 .track {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   padding: .5rem 0;
+  border-bottom: 1px solid #cccccc;
 }
 
 .play-button {
   color: rgb(255, 0, 171);
+}
+
+@keyframes shake {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  animation-name: shake;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }

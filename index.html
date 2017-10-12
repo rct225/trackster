@@ -28,7 +28,23 @@
     </div>
   </header>
   <main>
-    <div class="container-fluid">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr class="song-header">
+              <th class="col-xs-1"></th>
+              <th class="col-xs-2">Song</th>
+              <th class="col-xs-2">Artist</th>
+              <th class="col-xs-2">Album</th>
+              <th class="col-xs-2">Artwork</th>
+              <th class="col-xs-2">Listeners</th>
+            </tr>
+          </thead>
+          <tbody id="track-list">
+          </tbody>
+        </table>
+      </div>
+    <!-- <div class="container-fluid">
       <div class="row song-header">
         <div class="col-xs-2 col-xs-offset-2 attribute">Song</div>
         <div class="col-xs-2 atribute">Artist</div>
@@ -36,10 +52,8 @@
         <div class="col-xs-2 attribute">Artwork</div>
         <div class="col-xs-2 attribute">Listeners</div>
       </div>
-    </div>
+    </div> -->
     <div class="container-fluid" id="track-list">
-      <div class="row track">
-      </div>
     </div>
   </main>
 </body>
