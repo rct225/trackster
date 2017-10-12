@@ -6,7 +6,12 @@ $(document).ready(function() {
   $('#search-button').click(function() {
     Trackster.searchTracksByTitle($('#search-input').val());
   });
-
+  $('#search-input').keypress( function (e) {
+    var key = e.which;
+    if (key == 13) {
+        Trackster.searchTracksByTitle($('#search-input').val());
+    }
+  });
 })
 /*
   Given an array of track data, create the HTML for a Bootstrap row for each.
@@ -21,10 +26,11 @@ Trackster.renderTracks = function(tracks) {
       var albumName;
       if (data.error) {
         albumName = "";
-      } else {
+      } else if (data.track.album) {
         albumName = data.track.album.title;
+      } else {
+        albumName = ""
       }
-      //albumName = data;
       var trackRowHtml = `<div class="row track">
         <div class="col-xs-offset-1 col-xs-1">
           <a href="${tracks[i].url}" target="_blank">
@@ -37,7 +43,7 @@ Trackster.renderTracks = function(tracks) {
         <div class="col-xs-2">
           <img src="${albumArt}">
         </div>
-        <div class="col-xs-2">${tracks[i].listeners}</div>
+        <div class="col-xs-2">${numeral(tracks[i].listeners).format('0,0')}</div>
       </div>`;
       $('#track-list').append(trackRowHtml);
     };
