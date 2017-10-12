@@ -36,3 +36,18 @@ h1 {
   color: rgb(34, 1, 63);
   padding: 0.5rem;
 }
+
+.song-header  {
+  color: rgb(255,255,255);
+  background-color: rgb(104, 0, 255);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  padding: .5rem 0;
+}
+
+.play-button {
+  color: rgb(255, 0, 171);
+}
