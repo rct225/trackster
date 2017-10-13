@@ -12,7 +12,9 @@ $(document).ready(function() {
         Trackster.searchTracksByTitle($('#search-input').val());
     }
   });
+  sorttable.makeSortable($("#songs"));
 })
+
 /*
   Given an array of track data, create the HTML for a Bootstrap row for each.
   Append each "row" to the container in the body to display all tracks.
